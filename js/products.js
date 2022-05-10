@@ -1,0 +1,51 @@
+export const productsData = [
+  {
+    id: 1,
+    title: "زامیفویا",
+    class: "زامیفویا",
+    price: 1000000,
+    imageUrl: "/images/زامیفویا.jpg",
+  },
+  {
+    id: 2,
+    title: "سرخس",
+    class: "سرخس",
+    price: 800000,
+    imageUrl: "/images/سرخس.jpg",
+  },
+  {
+    id: 3,
+    title: "یوکا",
+    class: "یوکا",
+    price: 700000,
+    imageUrl: "/images/یوکا.jpg",
+  },
+  {
+    id: 4,
+    title: "کاکتوس",
+    class: "کاکتوس",
+    price: 700000,
+    imageUrl: "/images/کاکتوس.jpg",
+  },
+  {
+    id: 5,
+    title: "کروتون",
+    class: "",
+    price: 1000000,
+    imageUrl: "/images/کروتون.jpg",
+  },
+  {
+    id: 6,
+    title: "سانسوریا",
+    class: "سانسوریا",
+    price: 1000000,
+    imageUrl: "/images/سانسوریا.jpg",
+  },
+  {
+    id: 7,
+    title: "آلوئه ورا",
+    class: "آلوئه ورا",
+    price: 1000000,
+    imageUrl: "/images/aloevera.jpg",
+  },
+];
