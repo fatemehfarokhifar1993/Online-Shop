@@ -44,6 +44,18 @@ const cartitems = document.querySelector(".cart-items");
 const carttotal = document.querySelector(".cart-total");
 const cartcontent = document.querySelector(".cart-content");
 const cleaCart = document.querySelector(".clear-cart");
+const searchInput = document.querySelector("#search");
+const filters = {
+  searchItems: "",
+};
+searchInput.addEventListener("input", (e) => {
+  filters.searchItems = e.target.value;
+  const ui = new UI();
+  ui.displayProducts(productsData, filters);
+  ui.setupApp();
+  ui.getAddToCartBtns();
+  ui.cartLogic();
+});
 let cart = [];
 let buttonsDom = [];
 
@@ -53,9 +65,17 @@ class Products {
   }
 }
 class UI {
-  displayProducts(products) {
+  displayProducts(products, filters) {
+    const filteredProducts = products.filter((p) => {
+      return p.title
+        .toLowerCase()
+        .trim()
+        .includes(filters.searchItems.toLowerCase().trim());
+    });
+    productsDom.innerHTML = "";
+
     let result = "";
-    products.forEach((product) => {
+    filteredProducts.forEach((product) => {
       result += `
       <div class="product">
       <div class="images">
@@ -216,12 +236,15 @@ class Storage {
   }
 }
 document.addEventListener("DOMContentLoaded", () => {
+  searchInput.value = "";
   const products = new Products();
   const productsData = products.getProducts();
   const ui = new UI();
-  ui.displayProducts(productsData);
+  ui.displayProducts(productsData, filters);
   ui.setupApp();
   ui.getAddToCartBtns();
   ui.cartLogic();
   Storage.saveProducts(productsData);
 });
+
+
